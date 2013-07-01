@@ -118,6 +118,8 @@ TCP/IP Model
 
 References
 ==========
-* `wikipedia`_
+* `wikipedia OSI 7 Layer Model`_
+* `wikipedia TCP/IP Model`_
 
-.. _wikipedia: http://en.wikipedia.org/wiki/OSI_model
+.. _`wikipedia OSI 7 Layer Model`: http://en.wikipedia.org/wiki/OSI_model
+.. _`wikipedia TCP/IP Model`: http://en.wikipedia.org/wiki/TCP/IP_model
