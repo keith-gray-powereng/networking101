@@ -110,14 +110,45 @@ Layer 7: Application Layer
 
 TCP/IP Model
 ------------
+
 * Layer 1: Link Layer
 * Layer 2: Internet Layer
 * Layer 3: Transport Layer
 * Layer 4: Application layer
 
+Layer 1: Link Layer
+~~~~~~~~~~~~~~~~~~~~~~~
+* Corresponds to OSI Model Layers 1 (Physical) and 2 (Data Link)
+* Responsible for sending/receiving data on the local network
+
+Layer 2: Internet Layer
+~~~~~~~~~~~~~~~~~~~~~~~~
+* Corresponds to OSI Model Layer 3 (Network)
+* Responsible for sending/receiving data across 2 or more networks
+
+Layer 3: Transport Layer
+~~~~~~~~~~~~~~~~~~~~~~
+* Corresponds to OSI Model Layer 4 (Transport)
+* Responsible for sending/receiving data between hosts
+
+Layer 4: Application Layer
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Corresponds to OSI Model Layers 5 (Session), 6 (Presentation), and 7 (Application)
+* Responsible for sending/receiving data between applications
+* Responsible for formatting and presenting data
+
+Which Model?
+------------
+
+The most commonly used model today is the TCP/IP model and is what we will be exploring today.
+
+Layer Details
+=============
 
 References
 ==========
-* `wikipedia`_
+* `wikipedia_osi_model`_
+* `wikipedia_internet_model`_
 
-.. _wikipedia: http://en.wikipedia.org/wiki/OSI_model
+.. _wikipedia_osi_model: http://en.wikipedia.org/wiki/OSI_model
+.. _wikipedia_internet_model: http://en.wikipedia.org/wiki/Internet_protocol_suite
