@@ -145,6 +145,17 @@ The most commonly used model today is the TCP/IP model and is what we will be ex
 Layer Details
 =============
 
+Link Layer
+----------
+* Common protocols include
+
+  * Ethernet
+
+Ethernet
+~~~~~~~~
+
+
+
 References
 ==========
 * `wikipedia_osi_model`_
