@@ -2677,7 +2677,7 @@
       <set
          id="set4697"
          attributeName="visibility"
-         attributeType="XML"
+         attributeType="auto"
          begin="animateTransform3339.end"
          dur="3s"
          to="visible"
@@ -2722,7 +2722,7 @@
          to="visible"
          dur="3s"
          begin="animateTransform3339.end"
-         attributeType="XML"
+         attributeType="auto"
          attributeName="visibility"
          id="set4699"
          fill="freeze" />
