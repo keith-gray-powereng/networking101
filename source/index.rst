@@ -154,6 +154,11 @@ Link Layer
 Ethernet
 ~~~~~~~~
 
+Image Test
+==========
+
+.. image:: _static/network-diagram1.svg
+
 
 
 References
