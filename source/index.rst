@@ -127,7 +127,7 @@ Layer 2: Internet Layer
 * Responsible for sending/receiving data across 2 or more networks
 
 Layer 3: Transport Layer
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 * Corresponds to OSI Model Layer 4 (Transport)
 * Responsible for sending/receiving data between hosts
 
