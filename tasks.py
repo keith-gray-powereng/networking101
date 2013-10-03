@@ -10,7 +10,7 @@ def clean():
 @task('clean')
 def slides():
     print("Creating Slides Based on reveal.js")
-    run('rst2html5 --jquery --reveal-js --pretty-print-code --embed-content --pygments networking101/source/index.rst > reveal.html')
+    run('rst2html5 --jquery --reveal-js --pretty-print-code --embed-content --pygments --reveal-js-opts theme=sky source/index.rst > index.html')
 
 @task('slides')
 def serve():
