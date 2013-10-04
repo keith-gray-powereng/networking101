@@ -142,7 +142,7 @@ Layer 4: Application Layer
 How do the models work?
 -----------------------
 
-.. image:: /source/_static/network-layers.svg
+.. image:: network-layers.svg
 
 
 Which Model?
@@ -230,7 +230,7 @@ Unicast
 
 Unicast Message
 ---------------
-.. image:: /source/_static/unicast-message.svg
+.. image:: unicast-message.svg
 
 
 Broadcast
@@ -243,7 +243,7 @@ Broadcast
 
 Broadcast Message
 -----------------
-.. image:: /source/_static/broadcast-message.svg
+.. image:: broadcast-message.svg
 
 Multicast
 ---------
@@ -256,7 +256,7 @@ Multicast
 
 Multicast Message
 -----------------
-.. image:: /source/_static/broadcast-message.svg
+.. image:: broadcast-message.svg
 
 .. class:: fragment
    

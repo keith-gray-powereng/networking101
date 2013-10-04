@@ -2,6 +2,7 @@ Genshi==0.7
 Pygments==1.6
 argparse==1.2.1
 docutils==0.11
+ghp-import==0.3.2
 invoke==0.5.1
--e git+https://github.com/marianoguerra/rst2html5.git@d73d946b6b5744f4a349657b083ee5df66c8922d#egg=rst2html5-dev
+-e git+https://github.com/keith-gray-powereng/rst2html5.git@6d810b412c1f1a771db83b493b8e83a82fe03d43#egg=rst2html5-dev
 wsgiref==0.1.2
