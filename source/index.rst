@@ -284,11 +284,12 @@ VLAN
 Network Layer - Internet Protocol (IP)
 ======================================
 
-Versions
---------
+IP
+--
 
-* IPv4
-* IPv6
+* Layer 3 Protocol
+* IPv4 - Best Known
+* IPv6 - Starting to hear about it, not officially supported on any substation device I know of
 
 IPv4 Addresses
 --------------
@@ -300,6 +301,127 @@ IPv4 Addresses
 IPv4 Subnetting
 ---------------
 
+* Classless Inter-Domain Routing (CIDR)
+* Subnet Mask
+
+  + Dotted-decimal notation
+  + 4 octets separated by dots
+  + Starts with all 1s, ends with all 0s
+
+    - 255.255.255.0
+
+  + Also found in CIDR notation as '/<number_of_ones>'
+
+    - 10.123.7.50/24 (This is the same as a subnet mask of 255.255.255.0)
+
+Let's Do Some IP Math!
+----------------------
+
+* My laptop IP address is 10.123.7.50/24
+* I want to ping 10.123.7.1
+* Are the two IPs on the same network?
+
+
+
+My IP Address AND Subnet Mask
+-----------------------------
+
+   +---------------+--------------+--------------+--------------+--------------+
+   | 10.123.7.50   | 00001010     | 01111011     | 00000111     | 00110010     |
+   +---------------+--------------+--------------+--------------+--------------+
+   | 255.255.255.0 | 11111111     | 11111111     | 11111111     | 00000000     |
+   +---------------+--------------+--------------+--------------+--------------+
+   | 10.123.7.0    | **00001010** | **01111011** | **00000111** | **00000000** |
+   +---------------+--------------+--------------+--------------+--------------+
+
+Destination IP Address AND Subnet Mask
+--------------------------------------
+
+   +---------------+--------------+--------------+--------------+--------------+
+   | 10.123.7.1    | 00001010     | 01111011     | 00000111     | 00000001     |
+   +---------------+--------------+--------------+--------------+--------------+
+   | 255.255.255.0 | 11111111     | 11111111     | 11111111     | 00000000     |
+   +---------------+--------------+--------------+--------------+--------------+
+   | 10.123.7.0    | **00001010** | **01111011** | **00000111** | **00000000** |
+   +---------------+--------------+--------------+--------------+--------------+
+
+Compare the Results
+-------------------
+
+   +---------------+--------------+--------------+--------------+--------------+
+   | 10.123.7.0    | **00001010** | **01111011** | **00000111** | **00000000** |
+   +---------------+--------------+--------------+--------------+--------------+
+   | 10.123.7.0    | **00001010** | **01111011** | **00000111** | **00000000** |
+   +---------------+--------------+--------------+--------------+--------------+
+
+They match! The two computers are on the same network and can communicate directly
+
+.. class:: fragment
+
+   But How Exactly?  Over Ethernet using source and destination MAC addresses.
+
+   But how does my laptop know the MAC address of the destination?
+
+Address Resolution Protocol (ARP)
+---------------------------------
+
+* ARP is another layer 3 protocol, just like IP
+* ARP resolves IP addresses to MAC Addresses
+* Every host using Ethernet and IP has ARP
+* View the IP to MAC mapping table
+
+.. class:: prettyprint lang-bash
+
+   arp -a #on windows
+
+.. class:: prettyprint lang-bash
+
+   arp #on linux
+
+.. class:: fragment
+
+        **But the ARP table is Blank**
+
+Populating the ARP Table
+------------------------
+
+* Two ways the ARP table gets populated
+
+  #. Receiving IP Packets
+     
+     * The source MAC and IP addresses are included in the message, just record it in the table
+
+  #. Asking
+
+     * Explicitly sending an ARP request
+
+ARP Request
+-----------
+
+* ARP packet is sent asking which MAC address owns the IP address in question
+* What MAC Address is it sent to?
+
+.. class:: fragment
+
+   **FF-FF-FF-FF-FF-FF**
+
+ARP Request
+-----------
+
+* Who responds
+
+.. class:: fragment
+   
+   **Only the host with the IP address being asked about**
+
+ARP Response
+------------
+
+* How does the Requesting host get the information from the response?
+
+.. class:: fragment
+
+   **Responding host uses a unicast message which contains its MAC and IP addresses**
 
 
 Hardware
