@@ -10,7 +10,7 @@ Outline
 =======
 
 .. contents:: 
-   :depth: 2
+   :depth: 1
 
 Introduction
 ============
@@ -46,6 +46,9 @@ Protection
 Network Layer Modeling
 ======================
 
+Two Main Layer Models
+---------------------
+
 * OSI 7 Layer Model
 * TCP/IP Model
 
@@ -61,7 +64,7 @@ OSI 7 Layer Model
 * Layer 7: Application Layer
 
 Layer 1: Physical Layer
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 * Data Unit: Bit
 * Media 
   
@@ -76,34 +79,34 @@ Layer 1: Physical Layer
   * Light Modulation
 
 Layer 2: Data Link Layer
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 * Data Unit: Frame
 * Framing, Physical addressing, Error Control, Media Access Control
 * Communication within the same network
 
 Layer 3: Network Layer
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 * Data Unit: Packet/Datagram
 * Path determination and logical addressing
 * Communication between networks aka Routing
 
 Layer 4: Transport Layer
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 * Data Unit: Segments
 * End-to-end connection, reliability and flow control
 
 Layer 5: Session Layer
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 * Data Unit: Data
 * Interhost communication, managing sessions between applications
 
 Layer 6: Presentation Layer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 * Data Unit: Data
 * Data representation, encryption and decryption, convert machine dependent data to machine independent data
 
 Layer 7: Application Layer
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 * Data Unit: Data
 * Network process to application
 
@@ -116,54 +119,248 @@ TCP/IP Model
 * Layer 4: Application layer
 
 Layer 1: Link Layer
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 * Corresponds to OSI Model Layers 1 (Physical) and 2 (Data Link)
 * Responsible for sending/receiving data on the local network
 
 Layer 2: Internet Layer
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 * Corresponds to OSI Model Layer 3 (Network)
 * Responsible for sending/receiving data across 2 or more networks
 
 Layer 3: Transport Layer
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 * Corresponds to OSI Model Layer 4 (Transport)
 * Responsible for sending/receiving data between hosts
 
 Layer 4: Application Layer
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 * Corresponds to OSI Model Layers 5 (Session), 6 (Presentation), and 7 (Application)
 * Responsible for sending/receiving data between applications
 * Responsible for formatting and presenting data
 
+How do the models work?
+-----------------------
+
+.. image:: /source/_static/network-layers.svg
+
+
 Which Model?
 ------------
 
-The most commonly used model today is the TCP/IP model and is what we will be exploring today.
+Both models are in use today so we need to keep both of them in mind during today's presentation. Most of the references to a specific layer will be referring to the OSI 7 Layer Model.
 
 Layer Details
 =============
 
-Link Layer
-----------
-* Common protocols include
-
-  * Ethernet
-
-Ethernet
-~~~~~~~~
-
-Image Test
-==========
-
-.. image:: _static/network-diagram1.svg
+Physical and Data Link Layers - Ethernet
+========================================
 
 
+Physical Layer
+--------------
+
+* Covers Physical Layer
+
+* Copper
+
+  + 10BASE-T
+  + 100BASE-TX
+  + 1000BASE-T
+
+* Fiber
+
+  + 10BASE-FL
+  + 100BASE-SX
+  + 100BASE-FX
+  + 100BASE-BX
+  + 100BASE-LX
+  + 1000BASE-SX
+  + 1000BASE-LX
+
+Data Link Layer
+---------------
+
+* Covers Data Link Layer
+* MAC Addresses
+* VLANs
+* Data Encapsulation
+* CRC
+* Carrier sense multiple access with collision detection
+
+Frame Structure
+---------------
+* Preamble: 7 octets (bytes)
+* Start of Frame Delimiter: 1 octet
+* Destination MAC: 6 octets
+* Source MAC: 6 octets
+* VLAN Tag: 4 octets (optional)
+* Ethertype or Length: 2 octets
+* Payload: 46 - 1500 octets
+* Frame Check Sequence: 4 octets
+* Interframe Gap: 12 octets
+
+Total Frame size range: 88 to 1542 (including VLAN tag option)
+
+MAC Address
+-----------
+
+Types
+-----
+
+* Unicast
+* Broadcast
+* Multicast
+
+Unicast
+-------
+
+* Globally Unique
+* 6 octets
+* First 3 octets are assigned to the manufacturer by the IANA
+* Last 3 octets are assigned by the manufacturer
+* My laptop NIC address: 5C-26-0A-4A-DA-4F
+* 5C-26-0A is assigned to Dell Inc.
+* 4A-DA-4F is assigned by Dell to my NIC
+
+  + Useful during troubleshooting (show laptop wireshark here)
+
+* Hosts only accept unicast messages with its MAC address in the destination field of the frame
+* Most substation LAN traffic is unicast
+
+Unicast Message
+---------------
+.. image:: /source/_static/unicast-message.svg
+
+
+Broadcast
+---------
+
+* All hosts accept broadcast frames
+* Switches forward broadcast frames out all ports (except the source port)
+* MAC Address of all 1s (FF-FF-FF-FF-FF-FF)
+* Broadcast is used on a limited basis in all substation LANs
+
+Broadcast Message
+-----------------
+.. image:: /source/_static/broadcast-message.svg
+
+Multicast
+---------
+
+* Hosts are programmed to accept multicast messages
+* Least Significant bit of the most significant destination address octet is 1
+* Multicast was not used very often in substation LANs, until now!
+
+  + **GOOSE**
+
+Multicast Message
+-----------------
+.. image:: /source/_static/broadcast-message.svg
+
+.. class:: fragment
+   
+        Hey, wait a minute! Isn't that the same thing we saw for broadcast?
+
+
+        Yes it is. Remember that it is up to the network adapter in the host to 
+        filter incoming multicast messages
+
+        + Unless programming is done in the switches to filter the messages
+
+VLAN
+----
+
+* Virtual Local Area Network
+* Typically used by network administrators to separate network users
+* GOOSE is another application - we will see this later
+* Creates a number of virtual switches inside of a physical switch
+* Alternative to separate hardware (switches, fiber, copper) for each application
+* VLAN tag also incorporates a priority code - we will see this later
+* Note that Microsoft Windows probably will not allows Wireshark to display VLAN tag information
+
+  + Linux will always make it available
+
+Network Layer - Internet Protocol (IP)
+======================================
+
+Versions
+--------
+
+* IPv4
+* IPv6
+
+IPv4 Addresses
+--------------
+
+* Dotted-decimal notation
+* 4 octets separated by dots
+* 10.123.7.50
+
+IPv4 Subnetting
+---------------
+
+
+
+Hardware
+========
+
+Common Hardware
+---------------
+
+* Hub
+* Switch
+* Router
+
+Hub
+---
+
+* Single data bus inside
+* Single Broadcast Domain
+* Single Collision Domain
+
+Switch
+------
+* Switches data based on destination MAC Address
+* Single Broadcast Domain
+* Per Port Collision Domain
+
+Router
+------
+* Routes Data based on Destination IP Address
+* Per Port Broadcast Domain
+* Per Port Collision Domain
+
+Additional Topics
+=================
+
+* VPN
+* Gateway Redundancy (VRRP)
 
 References
 ==========
 * `wikipedia_osi_model`_
 * `wikipedia_internet_model`_
+* `wikipedia_ethernet_frame`_
+* `wikipedia_ethernet`_
+* `wikipedia_ethernet_bit_rates`_
+* `wikipedia_fast_ethernet`_
+* `wikipedia_gigabit_ethernet`_
+* `mac_find`_
+* `wikipedia_vlan`_
+* `wikipedia_mac`_
+* `wikipedia_ip_address`_
+* Data Communications and Networking by Behrouz A. Forouzan
+* The All-New Switch Book by Rich Seifert and James Edwards
 
 .. _wikipedia_osi_model: http://en.wikipedia.org/wiki/OSI_model
 .. _wikipedia_internet_model: http://en.wikipedia.org/wiki/Internet_protocol_suite
+.. _wikipedia_ethernet_frame: http://en.wikipedia.org/wiki/Ethernet_frame
+.. _wikipedia_ethernet: http://en.wikipedia.org/wiki/Ethernet
+.. _wikipedia_ethernet_bit_rates: http://en.wikipedia.org/wiki/List_of_device_bit_rates
+.. _wikipedia_fast_ethernet: http://en.wikipedia.org/wiki/Fast_Ethernet
+.. _wikipedia_gigabit_ethernet: http://en.wikipedia.org/wiki/Gigabit_Ethernet
+.. _mac_find: http://www.coffer.com/mac_find/
+.. _wikipedia_vlan: http://en.wikipedia.org/wiki/802.1Q
+.. _wikipedia_mac: http://en.wikipedia.org/wiki/MAC_address
+.. _wikipedia_ip_address: http://en.wikipedia.org/wiki/IP_address
