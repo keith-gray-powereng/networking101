@@ -14,7 +14,7 @@
    id="svg3357"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="networ-layers.svg">
+   sodipodi:docname="network-layers.svg">
   <defs
      id="defs3359" />
   <sodipodi:namedview
@@ -25,14 +25,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="645.48599"
-     inkscape:cy="340.1937"
+     inkscape:cx="567.53932"
+     inkscape:cy="658.07939"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1028"
-     inkscape:window-x="1912"
+     inkscape:window-width="1440"
+     inkscape:window-height="848"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -198,9 +198,9 @@
            id="set4260"
            attributeName="visibility"
            attributeType="auto"
-           begin="2.5s"
+           begin="7.5s"
            to="visible"
-           dur="7.5s" />
+           dur="22.5s" />
       </g>
       <g
          transform="translate(-54.839284,2.1875)"
@@ -228,9 +228,9 @@
            id="set4262"
            attributeName="visibility"
            attributeType="auto"
-           begin="5s"
+           begin="15s"
            to="visible"
-           dur="5s" />
+           dur="15s" />
       </g>
       <g
          id="g4264"
@@ -297,15 +297,15 @@
            id="set4276"
            attributeName="visibility"
            attributeType="auto"
-           begin="7.5"
+           begin="22.5"
            to="visible"
-           dur="2.5s" />
+           dur="7.5s" />
       </g>
       <animateTransform
          id="animateTransform3876"
          attributeName="transform"
          attributeType="XML"
-         dur="10s"
+         dur="30s"
          fill="freeze"
          from="-217.34064,0"
          to="-217.34064,450"
@@ -314,7 +314,7 @@
          id="set4401"
          attributeName="visibility"
          attributeType="auto"
-         begin="10s"
+         begin="30s"
          fill="freeze"
          to="hidden" />
     </g>
@@ -478,7 +478,7 @@
         <set
            to="hidden"
            fill="freeze"
-           begin="20s"
+           begin="56.5s"
            attributeType="auto"
            attributeName="visibility"
            id="set4297" />
@@ -507,7 +507,7 @@
         <set
            to="hidden"
            fill="freeze"
-           begin="17.5s"
+           begin="49s"
            attributeType="auto"
            attributeName="visibility"
            id="set4307" />
@@ -575,7 +575,7 @@
         <set
            to="hidden"
            fill="freeze"
-           begin="15"
+           begin="42.5s"
            attributeType="auto"
            attributeName="visibility"
            id="set4331" />
@@ -585,16 +585,16 @@
          to="336.65934,0"
          from="336.65934,450"
          fill="freeze"
-         dur="10s"
+         dur="30s"
          attributeType="XML"
          attributeName="transform"
          id="animateTransform4333"
-         begin="12s" />
+         begin="35s" />
       <set
          id="set4393"
          attributeName="visibility"
          attributeType="auto"
-         begin="12.5s"
+         begin="35s"
          fill="freeze"
          to="visible" />
     </g>
@@ -612,8 +612,8 @@
          id="set4399"
          attributeName="visibility"
          attributeType="auto"
-         begin="10s"
-         dur="2.5s"
+         begin="30s"
+         dur="5s"
          to="visible" /></text>
   </g>
 </svg>

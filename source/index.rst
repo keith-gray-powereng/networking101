@@ -3,8 +3,25 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Networking 101 - How the Internet Works!
-========================================
+Networking 101
+==============
+
+How the Internet Works!
+-----------------------
+
+RCEP Provider
+-------------
+
+POWER Engineers, Inc. has met the standards and requirements of the Registerd Continuing Education Program. Credit earned on completion of this program will be reported to RCEP at RCEP.net. A certificate of completion will be issued to each participant. As such, it does not include content that may be deemed or construed to be an approval or endorsement by the RCEP.
+
+.. image:: rcep.png
+
+Purpose & Learning Objectives
+-----------------------------
+
+The purpose of this presentation is to bring everyone in SAS up to speed on the basics of networking
+
+At the end of this presenation you will understand the various layers in the networking models.
 
 Outline
 =======
@@ -15,8 +32,32 @@ Outline
 Introduction
 ============
 
+About Me
+--------
+
+* 9th Year with POWER
+* Offices
+
+  + STL
+  + Boise
+  + Hailey
+
+* Expertise
+
+  + SCADA
+  + Protection
+  + SCADA
+
+* Main Clients
+
+  + Tesoro
+  + SSVEC
+  + Navy
+
 History of SCADA
 ----------------
+
+Serial
 
 Why is networking important?
 ----------------------------
@@ -42,6 +83,11 @@ Protection
 * New protocols rely on the speed of Ethernet to function
 
   * IEC 61850 GOOSE and SV
+
+Network Design
+~~~~~~~~~~~~~~
+
+We are being asked by our clients to design substation, and larger area, networks
 
 Network Layer Modeling
 ======================
@@ -424,6 +470,75 @@ ARP Response
    **Responding host uses a unicast message which contains its MAC and IP addresses**
 
 
+Transport Layer Protocols - TCP/UDP
+===================================
+
+TCP/UDP
+-------
+
+* TCP (Transport Control Protocol)
+
+  + Connection Oriented
+  + 3-way handshake
+
+* UDP (User Datagram Protocol)
+
+  + Connection-less
+  + Fire-and-forget
+
+* Mailbox Analogy
+
+Ports
+-----
+
+* IANA assigns standard TCP/UDP ports to protocols
+
+  * 20000: DNP
+  * 502: Modbus
+  * 22: SSH
+  * 23: Telnet
+  * 80: HTTP (Web)
+  * 443: HTTPS (Secure Web)
+  * ...and so on
+
+Transmission Control Protocol
+-----------------------------
+
+* Connection Oriented
+* 3-way handshake
+
+  * SYN
+  * SYN, ACK
+  * ACK
+
+* Flow control
+* Ordering
+* Reliable transmission
+
+  * Acknowledgements
+
+User Datagram Protocol
+----------------------
+
+* Connectionless
+* No handshake
+* Relies on upper layers for reliability
+* Relies on upper layers for flow control
+
+Comments
+--------
+
+* DNP uses either TCP or UDP
+
+  * Overwhelming majority of cases use TCP
+
+* Modbus uses TCP
+* MMS uses TCP
+* Ruggedcom has a working implentation of GOOSE over UDP
+
+  * They are working to make it part of the standard
+  * This would allow GOOSE between networks
+
 Hardware
 ========
 
@@ -453,14 +568,62 @@ Router
 * Per Port Broadcast Domain
 * Per Port Collision Domain
 
+Classes of Service
+==================
+
+Standard
+--------
+
+* PCP field in the TCI field of the VLAN header
+* 3-bit field => 8 Priority Levels
+
+  * 0 = best effort
+  * 7 = highest priority
+
+Implementations
+---------------
+
+* Many vendors support 2 priority buffers
+* Ruggedcom supports 4
+* Anyone know any other switches?
+* Need to map standard priorities to available buffers
+
+Example Mapping
+---------------
+
++----------+--------+-----------------------------------+
+| PRIORITY | COS    | DESCRIPTION                       |
++==========+========+===================================+
+| 0        | NORMAL | All other traffic                 |
++----------+--------+-----------------------------------+
+| 1        | NORMAL | reserved for future               |
++----------+--------+-----------------------------------+
+| 2        | NORMAL | reserved for future               |
++----------+--------+-----------------------------------+
+| 3        | MEDIUM | reserved for future               |
++----------+--------+-----------------------------------+
+| 4        | MEDIUM | GOOSE with analog values          |
++----------+--------+-----------------------------------+
+| 5        | HIGH   | reserved for future               |
++----------+--------+-----------------------------------+
+| 6        | HIGH   | GOOSE without Tripping Capability |
++----------+--------+-----------------------------------+
+| 7        | CRIT   | GOOSE with Tripping Capability    |
++----------+--------+-----------------------------------+
+
 Additional Topics
 =================
 
+* GOOSE Multicast
+* GOOSE VLAN
 * VPN
 * Gateway Redundancy (VRRP)
 
 References
 ==========
+
+Page 1
+------
 * `wikipedia_osi_model`_
 * `wikipedia_internet_model`_
 * `wikipedia_ethernet_frame`_
@@ -472,8 +635,28 @@ References
 * `wikipedia_vlan`_
 * `wikipedia_mac`_
 * `wikipedia_ip_address`_
+* `wikipedia_tcp`_
+* `wikipedia_udp`_
+
+Page 2
+------
 * Data Communications and Networking by Behrouz A. Forouzan
 * The All-New Switch Book by Rich Seifert and James Edwards
+
+Questions
+=========
+
+Thank you for your time!
+
+This concludes the educational content of this activity.
+
+Keith Gray
+
+Project Engineer II
+
+314-851-4064
+
+`POWER Engineers`_
 
 .. _wikipedia_osi_model: http://en.wikipedia.org/wiki/OSI_model
 .. _wikipedia_internet_model: http://en.wikipedia.org/wiki/Internet_protocol_suite
@@ -486,3 +669,6 @@ References
 .. _wikipedia_vlan: http://en.wikipedia.org/wiki/802.1Q
 .. _wikipedia_mac: http://en.wikipedia.org/wiki/MAC_address
 .. _wikipedia_ip_address: http://en.wikipedia.org/wiki/IP_address
+.. _`POWER Engineers`: http://www.powereng.com
+.. _`wikipedia_tcp`: http://en.wikipedia.org/wiki/Transmission_Control_Protocol
+.. _`wikipedia_udp`: http://en.wikipedia.org/wiki/User_Datagram_Protocol

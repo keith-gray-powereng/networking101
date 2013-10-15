@@ -2,16 +2,22 @@
 
 from invoke import task, run
 
+import os.path
+
 @task
 def clean():
     print("Removing output slides")
-    run('rm reveal.html')
+    if os.path.exists('output'):
+        run('rm -R output')
 
 @task('clean')
 def slides():
     print("Creating Slides Based on reveal.js")
+    if not os.path.exists('output'):
+        run('mkdir output')
     run('rst2html5 --jquery --reveal-js --pretty-print-code --embed-content --pygments --reveal-js-opts theme=sky source/index.rst > output/index.html')
-    run('cp source/_static/* output/')
+    if os.path.exists('source/_static'):
+        run('cp source/_static/* output/')
 
 @task('slides')
 def serve():
