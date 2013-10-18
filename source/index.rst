@@ -9,13 +9,6 @@ Networking 101
 How the Internet Works!
 -----------------------
 
-RCEP Provider
--------------
-
-POWER Engineers, Inc. has met the standards and requirements of the Registerd Continuing Education Program. Credit earned on completion of this program will be reported to RCEP at RCEP.net. A certificate of completion will be issued to each participant. As such, it does not include content that may be deemed or construed to be an approval or endorsement by the RCEP.
-
-.. image:: rcep.png
-
 Purpose & Learning Objectives
 -----------------------------
 
