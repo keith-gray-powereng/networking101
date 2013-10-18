@@ -83,7 +83,7 @@ img.align-left{
 img.align-right{
  float: right;
 }
-</style><style type="text/css">.com { color: #93a1a1; }
+</style><style media="screen, print" type="text/css">.com { color: #93a1a1; }
 .lit { color: #195f91; }
 .pun, .opn, .clo { color: #93a1a1; }
 .fun { color: #dc322f; }
@@ -123,7 +123,7 @@ $violet:    #6c71c4;
 $blue:      #268bd2;
 $cyan:      #2aa198;
 $green:     #859900;
-*/</style><style type="text/css">@charset "UTF-8";
+*/</style><style media="screen, print" type="text/css">@charset "UTF-8";
 
 /*!
  * reveal.js
@@ -1776,7 +1776,7 @@ body {
 }
 
 
-</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
+</style><style media="screen, print" type="text/css">@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 /**
  * Sky theme for reveal.js.
@@ -1915,7 +1915,197 @@ body {
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
-</style><style type="text/css">.hide-title>header{
+</style><style media="print" type="text/css">/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+/* SECTION 1: Set default width, margin, float, and
+   background. This prevents elements from extending
+   beyond the edge of the printed page, and prevents
+   unnecessary background images from printing */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	font-size: 18pt;
+	width: 297mm;
+	height: 229mm;
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+@page {
+	size: letter landscape;
+	margin: 0;
+}
+
+/* SECTION 2: Remove any elements not needed in print.
+   This would include navigation, ads, sidebars, etc. */
+.nestedarrow,
+.controls,
+.reveal .progress,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+/* SECTION 3: Set body font face, size, and color.
+   Consider using a serif font for readability. */
+body, p, td, li, div {
+	font-size: 18pt;
+}
+
+/* SECTION 4: Set heading font face, sizes, and color.
+   Differentiate your headings from your body text.
+   Perhaps use a large sans-serif for distinction. */
+h1,h2,h3,h4,h5,h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+/* SECTION 5: Make hyperlinks more usable.
+   Ensure links are underlined, and consider appending
+   the URL to the end of the link for usability. */
+a:link,
+a:visited {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: monospace !important;
+}
+
+
+/* SECTION 6: more reveal.js specific additions by @skypanther */
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	text-align: center;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+.reveal .slides section {
+
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	width: 100% !important;
+	height: 229mm !important;
+	min-height: 229mm !important;
+	display: block !important;
+	overflow: hidden !important;
+
+	left: 0 !important;
+	top: 0 !important;
+	margin: 0 !important;
+	padding: 2cm 2cm 0 2cm !important;
+	box-sizing: border-box !important;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+.reveal .absolute-element {
+	margin-left: 2.2cm;
+	margin-top: 1.8cm;
+}
+.reveal section .fragment {
+	opacity: 1 !important;
+	visibility: visible !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+.reveal section .slide-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+}
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+.reveal img {
+	box-shadow: none;
+}
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+.reveal small a {
+	font-size: 16pt !important;
+}
+</style><style media="screen, print" type="text/css">.hide-title>header{
  display: none
 }
 </style></head><body class="reveal"><div class="slides"><section id="networking-101"><header><h2><a href="#id2">Networking 101</a></h2></header><section id="how-the-internet-works"><header><h3>How the Internet Works!</h3></header></section><section id="purpose-learning-objectives"><header><h3>Purpose &amp; Learning Objectives</h3></header><p>The purpose of this presentation is to bring everyone in SAS up to speed on the basics of networking</p><p>At the end of this presenation you will understand the various layers in the networking models.</p></section></section><section id="outline"><header><h2><a href="#id3">Outline</a></h2></header><div class="contents" id="contents"><h3>Contents</h3><ul><li><p><a class="reference internal" href="#networking-101" id="id2">Networking 101</a></p></li><li><p><a class="reference internal" href="#outline" id="id3">Outline</a></p></li><li><p><a class="reference internal" href="#introduction" id="id4">Introduction</a></p></li><li><p><a class="reference internal" href="#network-layer-modeling" id="id5">Network Layer Modeling</a></p></li><li><p><a class="reference internal" href="#layer-details" id="id6">Layer Details</a></p></li><li><p><a class="reference internal" href="#physical-and-data-link-layers-ethernet" id="id7">Physical and Data Link Layers - Ethernet</a></p></li><li><p><a class="reference internal" href="#network-layer-internet-protocol-ip" id="id8">Network Layer - Internet Protocol (IP)</a></p></li><li><p><a class="reference internal" href="#transport-layer-protocols-tcp-udp" id="id9">Transport Layer Protocols - TCP/UDP</a></p></li><li><p><a class="reference internal" href="#hardware" id="id10">Hardware</a></p></li><li><p><a class="reference internal" href="#classes-of-service" id="id11">Classes of Service</a></p></li><li><p><a class="reference internal" href="#additional-topics" id="id12">Additional Topics</a></p></li><li><p><a class="reference internal" href="#references" id="id13">References</a></p></li><li><p><a class="reference internal" href="#questions" id="id14">Questions</a></p></li></ul></div></section><section id="introduction"><header><h2><a href="#id4">Introduction</a></h2></header><section id="about-me"><header><h3>About Me</h3></header><ul><li><p>9th Year with POWER</p></li><li><p>Offices</p><ul><li><p>STL</p></li><li><p>Boise</p></li><li><p>Hailey</p></li></ul></li><li><p>Expertise</p><ul><li><p>SCADA</p></li><li><p>Protection</p></li><li><p>SCADA</p></li></ul></li><li><p>Main Clients</p><ul><li><p>Tesoro</p></li><li><p>SSVEC</p></li><li><p>Navy</p></li></ul></li></ul></section><section id="history-of-scada"><header><h3>History of SCADA</h3></header><p>Serial</p></section><section id="why-is-networking-important"><header><h3>Why is networking important?</h3></header><section id="scada"><header><h4>SCADA</h4></header><ul><li><p>Moving from Serial connections (RS-232, RS485) to Ethernet</p><ul><li><p>Existing protocols: Modbus and DNP</p></li></ul></li><li><p>New protocols don't even support serial</p><ul><li><p>IEC-61850 MMS</p></li></ul></li></ul></section><section id="protection"><header><h4>Protection</h4></header><ul><li><p>Moving from Hardwired and Serial connections to Ethernet</p><ul><li><p>IEC 61850 GOOSE</p></li></ul></li><li><p>New protocols rely on the speed of Ethernet to function</p><ul><li><p>IEC 61850 GOOSE and SV</p></li></ul></li></ul></section><section id="network-design"><header><h4>Network Design</h4></header><p>We are being asked by our clients to design substation, and larger area, networks</p></section></section></section><section id="network-layer-modeling"><header><h2><a href="#id5">Network Layer Modeling</a></h2></header><section id="two-main-layer-models"><header><h3>Two Main Layer Models</h3></header><ul><li><p>OSI 7 Layer Model</p></li><li><p>TCP/IP Model</p></li></ul></section><section id="osi-7-layer-model"><header><h3>OSI 7 Layer Model</h3></header><ul><li><p>Layer 1: Physical Layer</p></li><li><p>Layer 2: Data Link Layer</p></li><li><p>Layer 3: Network Layer</p></li><li><p>Layer 4: Transport Layer</p></li><li><p>Layer 5: Session Layer</p></li><li><p>Layer 6: Presentation Layer</p></li><li><p>Layer 7: Application Layer</p></li></ul></section><section id="layer-1-physical-layer"><header><h3>Layer 1: Physical Layer</h3></header><ul><li><p>Data Unit: Bit</p></li><li><p>Media</p><ul><li><p>Fiber</p></li><li><p>Copper</p></li><li><p>Radio</p></li></ul></li><li><p>Signal and binary transmission</p><ul><li><p>What is a 1 and what is a 0?</p></li><li><p>Manchester encoding</p></li><li><p>Light Modulation</p></li></ul></li></ul></section><section id="layer-2-data-link-layer"><header><h3>Layer 2: Data Link Layer</h3></header><ul><li><p>Data Unit: Frame</p></li><li><p>Framing, Physical addressing, Error Control, Media Access Control</p></li><li><p>Communication within the same network</p></li></ul></section><section id="layer-3-network-layer"><header><h3>Layer 3: Network Layer</h3></header><ul><li><p>Data Unit: Packet/Datagram</p></li><li><p>Path determination and logical addressing</p></li><li><p>Communication between networks aka Routing</p></li></ul></section><section id="layer-4-transport-layer"><header><h3>Layer 4: Transport Layer</h3></header><ul><li><p>Data Unit: Segments</p></li><li><p>End-to-end connection, reliability and flow control</p></li></ul></section><section id="layer-5-session-layer"><header><h3>Layer 5: Session Layer</h3></header><ul><li><p>Data Unit: Data</p></li><li><p>Interhost communication, managing sessions between applications</p></li></ul></section><section id="layer-6-presentation-layer"><header><h3>Layer 6: Presentation Layer</h3></header><ul><li><p>Data Unit: Data</p></li><li><p>Data representation, encryption and decryption, convert machine dependent data to machine independent data</p></li></ul></section><section id="layer-7-application-layer"><header><h3>Layer 7: Application Layer</h3></header><ul><li><p>Data Unit: Data</p></li><li><p>Network process to application</p></li></ul></section><section id="tcp-ip-model"><header><h3>TCP/IP Model</h3></header><ul><li><p>Layer 1: Link Layer</p></li><li><p>Layer 2: Internet Layer</p></li><li><p>Layer 3: Transport Layer</p></li><li><p>Layer 4: Application layer</p></li></ul></section><section id="layer-1-link-layer"><header><h3>Layer 1: Link Layer</h3></header><ul><li><p>Corresponds to OSI Model Layers 1 (Physical) and 2 (Data Link)</p></li><li><p>Responsible for sending/receiving data on the local network</p></li></ul></section><section id="layer-2-internet-layer"><header><h3>Layer 2: Internet Layer</h3></header><ul><li><p>Corresponds to OSI Model Layer 3 (Network)</p></li><li><p>Responsible for sending/receiving data across 2 or more networks</p></li></ul></section><section id="layer-3-transport-layer"><header><h3>Layer 3: Transport Layer</h3></header><ul><li><p>Corresponds to OSI Model Layer 4 (Transport)</p></li><li><p>Responsible for sending/receiving data between hosts</p></li></ul></section><section id="layer-4-application-layer"><header><h3>Layer 4: Application Layer</h3></header><ul><li><p>Corresponds to OSI Model Layers 5 (Session), 6 (Presentation), and 7 (Application)</p></li><li><p>Responsible for sending/receiving data between applications</p></li><li><p>Responsible for formatting and presenting data</p></li></ul></section><section id="how-do-the-models-work"><header><h3>How do the models work?</h3></header><object data="network-layers.svg" type="image/svg+xml">network-layers.svg</object></section><section id="which-model"><header><h3>Which Model?</h3></header><p>Both models are in use today so we need to keep both of them in mind during today's presentation. Most of the references to a specific layer will be referring to the OSI 7 Layer Model.</p></section></section><section id="layer-details"><header><h2><a href="#id6">Layer Details</a></h2></header></section><section id="physical-and-data-link-layers-ethernet"><header><h2><a href="#id7">Physical and Data Link Layers - Ethernet</a></h2></header><section id="physical-layer"><header><h3>Physical Layer</h3></header><ul><li><p>Covers Physical Layer</p></li><li><p>Copper</p><ul><li><p>10BASE-T</p></li><li><p>100BASE-TX</p></li><li><p>1000BASE-T</p></li></ul></li><li><p>Fiber</p><ul><li><p>10BASE-FL</p></li><li><p>100BASE-SX</p></li><li><p>100BASE-FX</p></li><li><p>100BASE-BX</p></li><li><p>100BASE-LX</p></li><li><p>1000BASE-SX</p></li><li><p>1000BASE-LX</p></li></ul></li></ul></section><section id="data-link-layer"><header><h3>Data Link Layer</h3></header><ul><li><p>Covers Data Link Layer</p></li><li><p>MAC Addresses</p></li><li><p>VLANs</p></li><li><p>Data Encapsulation</p></li><li><p>CRC</p></li><li><p>Carrier sense multiple access with collision detection</p></li></ul></section><section id="frame-structure"><header><h3>Frame Structure</h3></header><ul><li><p>Preamble: 7 octets (bytes)</p></li><li><p>Start of Frame Delimiter: 1 octet</p></li><li><p>Destination MAC: 6 octets</p></li><li><p>Source MAC: 6 octets</p></li><li><p>VLAN Tag: 4 octets (optional)</p></li><li><p>Ethertype or Length: 2 octets</p></li><li><p>Payload: 46 - 1500 octets</p></li><li><p>Frame Check Sequence: 4 octets</p></li><li><p>Interframe Gap: 12 octets</p></li></ul><p>Total Frame size range: 88 to 1542 (including VLAN tag option)</p></section><section id="mac-address"><header><h3>MAC Address</h3></header></section><section id="types"><header><h3>Types</h3></header><ul><li><p>Unicast</p></li><li><p>Broadcast</p></li><li><p>Multicast</p></li></ul></section><section id="unicast"><header><h3>Unicast</h3></header><ul><li><p>Globally Unique</p></li><li><p>6 octets</p></li><li><p>First 3 octets are assigned to the manufacturer by the IANA</p></li><li><p>Last 3 octets are assigned by the manufacturer</p></li><li><p>My laptop NIC address: 5C-26-0A-4A-DA-4F</p></li><li><p>5C-26-0A is assigned to Dell Inc.</p></li><li><p>4A-DA-4F is assigned by Dell to my NIC</p><ul><li><p>Useful during troubleshooting (show laptop wireshark here)</p></li></ul></li><li><p>Hosts only accept unicast messages with its MAC address in the destination field of the frame</p></li><li><p>Most substation LAN traffic is unicast</p></li></ul></section><section id="unicast-message"><header><h3>Unicast Message</h3></header><object data="unicast-message.svg" type="image/svg+xml">unicast-message.svg</object></section><section id="broadcast"><header><h3>Broadcast</h3></header><ul><li><p>All hosts accept broadcast frames</p></li><li><p>Switches forward broadcast frames out all ports (except the source port)</p></li><li><p>MAC Address of all 1s (FF-FF-FF-FF-FF-FF)</p></li><li><p>Broadcast is used on a limited basis in all substation LANs</p></li></ul></section><section id="broadcast-message"><header><h3>Broadcast Message</h3></header><object data="broadcast-message.svg" type="image/svg+xml">broadcast-message.svg</object></section><section id="multicast"><header><h3>Multicast</h3></header><ul><li><p>Hosts are programmed to accept multicast messages</p></li><li><p>Least Significant bit of the most significant destination address octet is 1</p></li><li><p>Multicast was not used very often in substation LANs, until now!</p><ul><li><p><strong>GOOSE</strong></p></li></ul></li></ul></section><section id="multicast-message"><header><h3>Multicast Message</h3></header><object data="broadcast-message.svg" type="image/svg+xml">broadcast-message.svg</object><p class="fragment">Hey, wait a minute! Isn't that the same thing we saw for broadcast?</p><p class="fragment">Yes it is. Remember that it is up to the network adapter in the host to
